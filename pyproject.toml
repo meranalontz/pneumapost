@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pneumapost"
+version = "0.4.1"
+description = "Sex-conditional population-prototype contrastive federation for consumer exhaled-breath, pulmonary 16S and multi-omics lung-adenocarcinoma risk at the edge"
+requires-python = "==3.8.*"
+readme = "README.md"
+license = { text = "BSD-3-Clause" }
+dependencies = [
+  "torch==1.12.1",
+  "numpy==1.21.6",
+  "scipy==1.7.3",
+  "scikit-learn==1.0.2",
+  "pyhocon==0.3.59",
+  "argh==0.26.2",
+  "onnx==1.12.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==7.1.3",
+  "hypothesis==6.54.6",
+  "ruff==0.5.7",
+  "black==22.8.0",
+  "isort==5.10.1",
+  "mypy==0.971",
+]
+
+[project.scripts]
+pneumapost = "pneumapost.wicket.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
+ignore = ["B905"]
+
+[tool.black]
+line-length = 100
+target-version = ["py38"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+files = ["src/pneumapost"]
+disable_error_code = ["no-untyped-call", "no-any-return"]
+
+[[tool.mypy.overrides]]
+module = ["pyhocon.*", "argh.*", "scipy.*", "sklearn.*", "onnx.*"]
+ignore_missing_imports = true

@@ -1,0 +1,17 @@
+name: pneumapost
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.8.13
+  - cudatoolkit=11.3.1
+  - pytorch=1.12.1
+  - numpy=1.21.6
+  - scipy=1.7.3
+  - scikit-learn=1.0.2
+  - pip=22.2.2
+  - pip:
+      - pyhocon==0.3.59
+      - argh==0.26.2
+      - onnx==1.12.0

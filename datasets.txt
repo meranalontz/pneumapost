@@ -1,0 +1,29 @@
+PNEUMAPOST — EXTERNAL DATA SOURCES
+Auxiliary pretraining / external-comparison layers only. None of these are
+patient-linked to the private Layer-1 evaluation cohort.
+
+[VERIFIED — reachable 2026-06]
+
+TCGA-LUAD multi-omics (omics encoder pretraining, molecular comparison)
+  https://portal.gdc.cancer.gov/projects/TCGA-LUAD
+  access  : GDC Data Portal, open processed levels (RNA-seq, DNA-methylation, RPPA)
+  license : NIH Genomic Data Sharing policy; open tier is unrestricted
+  checked : GDC API /projects/TCGA-LUAD resolves, 585 cases
+
+Oral / sputum 16S rRNA amplicon (microbiome encoder transfer, taxonomic priors)
+  https://www.ebi.ac.uk/ena/browser/view/SRP145042
+  access  : ENA / SRA study SRP145042, amplicon runs (human oral metagenome)
+  license : ENA open submission terms
+  checked : ENA portal filereport resolves to read runs (e.g. SRR7137035, SRR7137036)
+
+[DISCARDED — no resolvable public per-patient resource]
+
+Consumer exhaled-breath VOC (e-nose / GC-MS)
+  reason  : the breath modality has no public per-patient benchmark; the breath
+            encoder is motivated by published sensor-array studies only and no
+            breath accession is claimed. Breath is synthesised in-pipeline.
+
+Private Layer-1 clinical cohort (prospective + retrospective arms)
+  reason  : de-identified records remain under each contributing centre's
+            governance and are not redistributable. The synthetic tri-modal
+            cohort generator stands in for structure and headline reproduction.

@@ -1,0 +1,8 @@
+--extra-index-url https://download.pytorch.org/whl/cu113
+torch==1.12.1+cu113
+numpy==1.21.6
+scipy==1.7.3
+scikit-learn==1.0.2
+pyhocon==0.3.59
+argh==0.26.2
+onnx==1.12.0
